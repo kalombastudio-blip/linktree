@@ -100,7 +100,7 @@
         <main id="links-container" class="space-y-5">
             
             <!-- Tombol untuk membuka Modal Profil Instansi -->
-            <button id="open-modal-btn" class="link-item flex items-center justify-center w-full bg-white/70 backdrop-blur-sm text-blue-600 font-semibold py-4 px-5 rounded-xl shadow-lg border border-white/50 hover:shadow-blue-200 hover:border-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+            <button id="open-profil-modal-btn" class="link-item flex items-center justify-center w-full bg-white/70 backdrop-blur-sm text-blue-600 font-semibold py-4 px-5 rounded-xl shadow-lg border border-white/50 hover:shadow-blue-200 hover:border-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="book-open" class="mr-3 h-5 w-5"></i>
                 Profil Instansi
             </button>
@@ -111,19 +111,23 @@
                 Layanan Pengaduan via WhatsApp
             </a>
 
-            <!-- Tautan Lainnya... -->
+            <!-- Tautan 3: Pendaftaran Izin -->
             <a href="https://ui-login.oss.go.id/" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="file-check-2" class="mr-3 h-5 w-5"></i>
                 Pendaftaran Izin Online OSS RBA
             </a>
-            <a href="https://drive.google.com/file/d/1U-WhZVZl9Jw1--HtOezhVW1uCbXOmxEd/view?usp=sharing" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+            
+            <!-- Tombol untuk membuka Modal Alur Darat -->
+            <button id="open-darat-modal-btn" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="truck" class="mr-3 h-5 w-5"></i>
                 Alur Perizinan Sektor Darat
-            </a>
-            <a href="https://drive.google.com/file/d/1gOuYaePpaYhXt1260QAI5WlbP9jTMy06/view?usp=sharing" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+            </button>
+
+            <!-- Tombol untuk membuka Modal Alur Laut -->
+            <button id="open-laut-modal-btn" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="ship" class="mr-3 h-5 w-5"></i>
                 Alur Perizinan Sektor Laut
-            </a>
+            </button>
             
         </main>
 
@@ -157,7 +161,7 @@
         <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-[90vh] flex flex-col p-4 md:p-6 transform scale-95">
             <!-- Header Modal -->
             <div class="flex items-center justify-between pb-3 border-b border-gray-200">
-                <h3 class="text-xl font-semibold text-gray-800">Profil Dinas Perhubungan</h3>
+                <h3 id="modal-title" class="text-xl font-semibold text-gray-800"></h3>
                 <button id="close-modal-btn" class="text-gray-500 hover:text-red-600 transition-colors rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-red-400">
                     <i data-lucide="x" class="h-7 w-7"></i>
                 </button>
@@ -168,7 +172,7 @@
                     id="pdf-iframe"
                     class="w-full h-full border-0 rounded-lg"
                     src="" 
-                    title="Profil Dinas Perhubungan Provinsi Sulawesi Tengah"
+                    title="Dokumen SILADIS"
                 ></iframe>
             </div>
         </div>
@@ -190,18 +194,30 @@
 
         // === LOGIKA BARU UNTUK MODAL PDF ===
         const modal = document.getElementById('pdf-modal');
-        const openBtn = document.getElementById('open-modal-btn');
         const closeBtn = document.getElementById('close-modal-btn');
         const pdfIframe = document.getElementById('pdf-iframe');
-        
-        // Ganti URL ini dengan link Google Drive file PDF Anda
-        const pdfUrl = "https://drive.google.com/file/d/1RUAwz3yPFT2O5a1F6fvGr6Lvl4P9sW37/preview";
+        const modalTitle = document.getElementById('modal-title');
 
-        openBtn.addEventListener('click', () => {
-            pdfIframe.src = pdfUrl; // Setel URL iframe saat modal dibuka
+        const openProfilBtn = document.getElementById('open-profil-modal-btn');
+        const openDaratBtn = document.getElementById('open-darat-modal-btn');
+        const openLautBtn = document.getElementById('open-laut-modal-btn');
+        
+        const pdfUrls = {
+            profil: "https://drive.google.com/file/d/1RUAwz3yPFT2O5a1F6fvGr6Lvl4P9sW37/preview",
+            darat: "https://drive.google.com/file/d/1U-WhZVZl9Jw1--HtOezhVW1uCbXOmxEd/preview",
+            laut: "https://drive.google.com/file/d/1gOuYaePpaYhXt1260QAI5WlbP9jTMy06/preview"
+        };
+
+        const openModal = (title, url) => {
+            modalTitle.textContent = title;
+            pdfIframe.src = url;
             modal.classList.remove('invisible', 'opacity-0');
             modal.querySelector('.modal-content').classList.remove('scale-95');
-        });
+        };
+        
+        openProfilBtn.addEventListener('click', () => openModal('Profil Instansi', pdfUrls.profil));
+        openDaratBtn.addEventListener('click', () => openModal('Alur Perizinan Sektor Darat', pdfUrls.darat));
+        openLautBtn.addEventListener('click', () => openModal('Alur Perizinan Sektor Laut', pdfUrls.laut));
 
         const closeModal = () => {
             modal.classList.add('invisible', 'opacity-0');
