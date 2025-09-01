@@ -19,30 +19,26 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            /* Mencegah seleksi teks */
             -webkit-user-select: none; /* Safari */
             -ms-user-select: none; /* IE 10+ */
             user-select: none; /* Standard syntax */
         }
 
-        /* Container untuk particles.js agar menutupi seluruh background */
         #particles-js {
             position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 0; /* Diletakkan di belakang konten */
-            background-image: linear-gradient(to bottom right, #E0F2FE, #F9FAFB, #EBF8FF); /* Gradient lebih terang */
+            z-index: 0;
+            background-image: linear-gradient(to bottom right, #E0F2FE, #F9FAFB, #EBF8FF);
         }
         
-        /* Konten utama harus berada di atas particles */
         .content-container {
             position: relative;
             z-index: 1;
         }
 
-        /* Animasi fade in & slide up */
         .animate-fade-in-up {
             opacity: 0;
             transform: translateY(20px);
@@ -52,7 +48,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Animasi "bernapas" untuk foto profil */
         .animate-breathing {
             animation: breathing 4s ease-in-out infinite;
         }
@@ -67,11 +62,18 @@
             }
         }
 
-        /* Class untuk staggered animation pada link */
         .link-item {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.5s ease-out forwards;
+        }
+        
+        /* Gaya tambahan untuk Modal */
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
         }
     </style>
 </head>
@@ -97,31 +99,27 @@
         <!-- Bagian Daftar Tautan -->
         <main id="links-container" class="space-y-5">
             
-            <!-- Tautan 1: Profil Instansi -->
-            <a href="https://drive.google.com/file/d/1RUAwz3yPFT2O5a1F6fvGr6Lvl4P9sW37/view?usp=sharing" target="_blank" class="link-item flex items-center justify-center w-full bg-white/70 backdrop-blur-sm text-blue-600 font-semibold py-4 px-5 rounded-xl shadow-lg border border-white/50 hover:shadow-blue-200 hover:border-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-                <i data-lucide="globe" class="mr-3 h-5 w-5"></i>
+            <!-- Tombol untuk membuka Modal Profil Instansi -->
+            <button id="open-modal-btn" class="link-item flex items-center justify-center w-full bg-white/70 backdrop-blur-sm text-blue-600 font-semibold py-4 px-5 rounded-xl shadow-lg border border-white/50 hover:shadow-blue-200 hover:border-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <i data-lucide="book-open" class="mr-3 h-5 w-5"></i>
                 Profil Instansi
-            </a>
+            </button>
 
             <!-- Tautan 2: Layanan Pengaduan -->
-            <a href="https://wa.me/6281356686633?text=Halo,%20Saya%20ingin%20saya%20ingin%20melapor." target="_blank" class="link-item flex items-center justify-center w-full bg-green/70 backdrop-blur-sm text-black-600 font-semibold py-4 px-5 rounded-xl shadow-lg border border-green/50 hover:shadow-green-200 hover:border-green-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+            <a href="https://wa.me/6281356686633?text=Halo,%20Saya%20ingin%20saya%20ingin%20melapor." target="_blank" class="link-item flex items-center justify-center w-full bg-green-500/80 backdrop-blur-sm text-white font-semibold py-4 px-5 rounded-xl shadow-lg border border-green-500/50 hover:shadow-green-200 hover:border-green-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="message-square" class="mr-3 h-5 w-5"></i>
                 Layanan Pengaduan via WhatsApp
             </a>
 
-            <!-- Tautan 3: Layanan Perizinan -->
+            <!-- Tautan Lainnya... -->
             <a href="https://ui-login.oss.go.id/" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="file-check-2" class="mr-3 h-5 w-5"></i>
                 Pendaftaran Izin Online OSS RBA
             </a>
-
-            <!-- Tautan 4: Alur Perizinan Darat -->
             <a href="https://drive.google.com/file/d/1U-WhZVZl9Jw1--HtOezhVW1uCbXOmxEd/view?usp=sharing" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="truck" class="mr-3 h-5 w-5"></i>
                 Alur Perizinan Sektor Darat
             </a>
-
-            <!-- Tautan 5: Alur Perizinan Laut -->
             <a href="https://drive.google.com/file/d/1gOuYaePpaYhXt1260QAI5WlbP9jTMy06/view?usp=sharing" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="ship" class="mr-3 h-5 w-5"></i>
                 Alur Perizinan Sektor Laut
@@ -142,17 +140,38 @@
             </div>
         </section>
 
-        <!-- Bagian Footer dengan Ikon Sosial -->
+        <!-- Bagian Footer -->
         <footer class="mt-12 animate-fade-in-up" style="animation-delay: 0.9s;">
             <div class="flex justify-center space-x-6 mb-4">
-                 <a href="https://www.tiktok.com/@dishubsultengprov?is_from_webapp=1&sender_device=pc" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="music-2" class="h-6 w-6"></i></a>
-                 <a href="https://www.facebook.com/share/1FQgjzT6Sw/" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="facebook" class="h-6 w-6"></i></a>
-                 <a href="https://www.instagram.com/dishubsultengprov?igsh=OHBzM2p4c2h5dmlh" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="instagram" class="h-6 w-6"></i></a>
-                 <a href="https://youtube.com/@dishubsultengprov?si=AqSvZKs314gxwTMq" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="youtube" class="h-6 w-6"></i></a>
+                <a href="https://www.tiktok.com/@dishubsultengprov?is_from_webapp=1&sender_device=pc" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="music-2" class="h-6 w-6"></i></a>
+                <a href="https://www.facebook.com/share/1FQgjzT6Sw/" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="facebook" class="h-6 w-6"></i></a>
+                <a href="https://www.instagram.com/dishubsultengprov?igsh=OHBzM2p4c2h5dmlh" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="instagram" class="h-6 w-6"></i></a>
+                <a href="https://youtube.com/@dishubsultengprov?si=AqSvZKs314gxwTMq" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="youtube" class="h-6 w-6"></i></a>
             </div>
             <p class="text-sm text-gray-500">&copy; 2025 SILADIS. All rights reserved.</p>
         </footer>
-
+    </div>
+    
+    <!-- === BAGIAN MODAL PDF === -->
+    <div id="pdf-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm invisible opacity-0">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-[90vh] flex flex-col p-4 md:p-6 transform scale-95">
+            <!-- Header Modal -->
+            <div class="flex items-center justify-between pb-3 border-b border-gray-200">
+                <h3 class="text-xl font-semibold text-gray-800">Profil Dinas Perhubungan</h3>
+                <button id="close-modal-btn" class="text-gray-500 hover:text-red-600 transition-colors rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-red-400">
+                    <i data-lucide="x" class="h-7 w-7"></i>
+                </button>
+            </div>
+            <!-- Konten iFrame PDF -->
+            <div class="flex-grow mt-4">
+                <iframe 
+                    id="pdf-iframe"
+                    class="w-full h-full border-0 rounded-lg"
+                    src="" 
+                    title="Profil Dinas Perhubungan Provinsi Sulawesi Tengah"
+                ></iframe>
+            </div>
+        </div>
     </div>
     
     <!-- Memuat Script particles.js dan konfigurasinya -->
@@ -169,60 +188,49 @@
             });
         });
 
-        // Script untuk mencegah copy-paste, inspect element, dll.
-        // Mencegah klik kanan (context menu)
-        document.addEventListener('contextmenu', event => event.preventDefault());
+        // === LOGIKA BARU UNTUK MODAL PDF ===
+        const modal = document.getElementById('pdf-modal');
+        const openBtn = document.getElementById('open-modal-btn');
+        const closeBtn = document.getElementById('close-modal-btn');
+        const pdfIframe = document.getElementById('pdf-iframe');
+        
+        // Ganti URL ini dengan link Google Drive file PDF Anda
+        const pdfUrl = "https://drive.google.com/file/d/1RUAwz3yPFT2O5a1F6fvGr6Lvl4P9sW37/preview";
 
+        openBtn.addEventListener('click', () => {
+            pdfIframe.src = pdfUrl; // Setel URL iframe saat modal dibuka
+            modal.classList.remove('invisible', 'opacity-0');
+            modal.querySelector('.modal-content').classList.remove('scale-95');
+        });
+
+        const closeModal = () => {
+            modal.classList.add('invisible', 'opacity-0');
+            modal.querySelector('.modal-content').classList.add('scale-95');
+            pdfIframe.src = ""; // Kosongkan src untuk menghentikan pemuatan PDF
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Script untuk mencegah copy-paste, inspect element, dll.
+        document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('keydown', event => {
-            // Mencegah F12
-            if (event.key === 'F12') {
-                event.preventDefault();
-            }
-            // Mencegah Ctrl+Shift+I
-            if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'i') {
-                event.preventDefault();
-            }
-             // Mencegah Ctrl+U
-            if (event.ctrlKey && event.key.toLowerCase() === 'u') {
-                event.preventDefault();
-            }
-            // Mencegah Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A
-            if (event.ctrlKey && ['c', 'v', 'x', 'a'].includes(event.key.toLowerCase())) {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'i') || (event.ctrlKey && event.key.toLowerCase() === 'u') || (event.ctrlKey && ['c', 'v', 'x', 'a'].includes(event.key.toLowerCase()))) {
                 event.preventDefault();
             }
         });
 
         // Konfigurasi Particles.js
         particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 160, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#3B82F6" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.6, "random": true },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#3B82F6", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 5, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "repulse" },
-                    "onclick": { "enable": true, "mode": "push" },
-                    "resize": true
-                },
-                "modes": {
-                    "repulse": { "distance": 120, "duration": 0.4 },
-                    "push": { "particles_nb": 4 }
-                }
-            },
+            "particles": { "number": { "value": 160, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#3B82F6" }, "shape": { "type": "circle" }, "opacity": { "value": 0.6, "random": true }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#3B82F6", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 5, "direction": "none", "random": false, "straight": false, "out_mode": "out" } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "repulse": { "distance": 120, "duration": 0.4 }, "push": { "particles_nb": 4 } } },
             "retina_detect": true
         });
     </script>
-
 </body>
 </html>
-
-
-
-
 
