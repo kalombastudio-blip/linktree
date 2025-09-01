@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SILADIS | Siaga Layanan Dishub</title>
+    
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Memuat Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Memuat Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Mencegah seleksi teks */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard syntax */
+        }
+
+        /* Container untuk particles.js agar menutupi seluruh background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0; /* Diletakkan di belakang konten */
+            background-image: linear-gradient(to bottom right, #E0F2FE, #F9FAFB, #EBF8FF); /* Gradient lebih terang */
+        }
+        
+        /* Konten utama harus berada di atas particles */
+        .content-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animasi fade in & slide up */
+        .animate-fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Animasi "bernapas" untuk foto profil */
+        .animate-breathing {
+            animation: breathing 4s ease-in-out infinite;
+        }
+        @keyframes breathing {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(59, 130, 246, 0.35);
+            }
+        }
+
+        /* Class untuk staggered animation pada link */
+        .link-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="text-gray-800 flex items-center justify-center min-h-screen p-4">
+    
+    <!-- Latar Belakang Partikel -->
+    <div id="particles-js"></div>
+
+    <!-- Kontainer Konten Utama -->
+    <div class="content-container w-full max-w-md mx-auto text-center">
+        
+        <!-- Bagian Header Profil -->
+        <header class="mb-8 animate-fade-in-up">
+            <img 
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqgdp1VvQufrS58DFOHVfT9fIVU58Z9D9jU39zwkQl7ZkxB_LnfPC0qJWfJ73RZyb2Vkwb7TttCf9wSh2BU53eUtkT5LZRtEdKgUESzuCCAY4XAg4UGVP8JHbXNKEly2m8QRAyCoxp5oUZMhdcKkCr3BWNf1Jzza3Z3MbVCCHHEZEchLRwLhDYOw/s320/Logo%20Kementerian%20Perhubungan%20Indonesia%20(Kemenhub)%20%20(PNG-480p)%20-%20koleksilogo.png" 
+                alt="Foto Profil" 
+                class="w-28 h-28 mx-auto rounded-full shadow-lg animate-breathing"
+            >
+            <h1 class="text-3xl font-bold text-blue-600 mt-6 tracking-tight">SILADIS</h1>
+            <p class="text-md text-gray-600 mt-2 px-4">Selamat datang di Siaga Layanan Dishub!</p>
+        </header>
+
+        <!-- Bagian Daftar Tautan -->
+        <main id="links-container" class="space-y-5">
+            
+            <!-- Tautan 1: Profil Instansi -->
+            <a href="https://drive.google.com/file/d/1RUAwz3yPFT2O5a1F6fvGr6Lvl4P9sW37/view?usp=sharing" target="_blank" class="link-item flex items-center justify-center w-full bg-white/70 backdrop-blur-sm text-blue-600 font-semibold py-4 px-5 rounded-xl shadow-lg border border-white/50 hover:shadow-blue-200 hover:border-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <i data-lucide="globe" class="mr-3 h-5 w-5"></i>
+                Profil Instansi
+            </a>
+
+            <!-- Tautan 2: Layanan Pengaduan -->
+            <a href="https://wa.me/message/5MRMZ4GSJYPAP1" target="_blank" class="link-item flex items-center justify-center w-full bg-green/70 backdrop-blur-sm text-black-600 font-semibold py-4 px-5 rounded-xl shadow-lg border border-green/50 hover:shadow-green-200 hover:border-green-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <i data-lucide="message-square" class="mr-3 h-5 w-5"></i>
+                Layanan Pengaduan via WhatsApp
+            </a>
+
+            <!-- Tautan 3: Layanan Perizinan -->
+            <a href="https://tr.ee/yrDpcjmStq" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <i data-lucide="file-check-2" class="mr-3 h-5 w-5"></i>
+                Layanan Perizinan
+            </a>
+
+            <!-- Tautan 4: Alur Perizinan Darat -->
+            <a href="https://drive.google.com/file/d/1U-WhZVZl9Jw1--HtOezhVW1uCbXOmxEd/view?usp=sharing" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <i data-lucide="truck" class="mr-3 h-5 w-5"></i>
+                Alur Perizinan Sektor Darat
+            </a>
+
+            <!-- Tautan 5: Alur Perizinan Laut -->
+            <a href="https://drive.google.com/file/d/1gOuYaePpaYhXt1260QAI5WlbP9jTMy06/view?usp=sharing" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <i data-lucide="ship" class="mr-3 h-5 w-5"></i>
+                Alur Perizinan Sektor Laut
+            </a>
+            
+        </main>
+
+        <!-- Bagian Alamat Kantor -->
+        <section class="mt-8 animate-fade-in-up" style="animation-delay: 0.8s;">
+            <div class="bg-white/70 backdrop-blur-sm p-5 rounded-xl shadow-lg border border-white/50 text-left">
+                <h3 class="text-lg font-semibold text-blue-600 flex items-center mb-2">
+                    <i data-lucide="map-pin" class="mr-2 h-5 w-5"></i>
+                    Alamat Kantor
+                </h3>
+                <p class="text-gray-600 leading-relaxed text-sm">
+                    Jl. R.A. Kartini No.25, Lolu Sel., Kec. Palu Sel., Kota Palu, Sulawesi Tengah 94111
+                </p>
+            </div>
+        </section>
+
+        <!-- Bagian Footer dengan Ikon Sosial -->
+        <footer class="mt-12 animate-fade-in-up" style="animation-delay: 0.9s;">
+            <div class="flex justify-center space-x-6 mb-4">
+                 <a href="https://www.tiktok.com/@dishubsultengprov?is_from_webapp=1&sender_device=pc" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="music-2" class="h-6 w-6"></i></a>
+                 <a href="https://www.facebook.com/share/1FQgjzT6Sw/" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="facebook" class="h-6 w-6"></i></a>
+                 <a href="https://www.instagram.com/dishubsultengprov?igsh=OHBzM2p4c2h5dmlh" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="instagram" class="h-6 w-6"></i></a>
+                 <a href="https://youtube.com/@dishubsultengprov?si=AqSvZKs314gxwTMq" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="youtube" class="h-6 w-6"></i></a>
+            </div>
+            <p class="text-sm text-gray-500">&copy; 2025 Nama Anda. All rights reserved.</p>
+        </footer>
+
+    </div>
+    
+    <!-- Memuat Script particles.js dan konfigurasinya -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Inisialisasi Lucide Icons
+        lucide.createIcons();
+
+        // Logika untuk Staggered Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.link-item');
+            links.forEach((link, index) => {
+                link.style.animationDelay = `${0.3 + index * 0.1}s`;
+            });
+        });
+
+        // Script untuk mencegah copy-paste, inspect element, dll.
+        // Mencegah klik kanan (context menu)
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        document.addEventListener('keydown', event => {
+            // Mencegah F12
+            if (event.key === 'F12') {
+                event.preventDefault();
+            }
+            // Mencegah Ctrl+Shift+I
+            if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'i') {
+                event.preventDefault();
+            }
+             // Mencegah Ctrl+U
+            if (event.ctrlKey && event.key.toLowerCase() === 'u') {
+                event.preventDefault();
+            }
+            // Mencegah Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A
+            if (event.ctrlKey && ['c', 'v', 'x', 'a'].includes(event.key.toLowerCase())) {
+                event.preventDefault();
+            }
+        });
+
+        // Konfigurasi Particles.js
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 160, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#3B82F6" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.6, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#3B82F6", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 5, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "repulse" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "repulse": { "distance": 120, "duration": 0.4 },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
+</body>
+</html>
+
