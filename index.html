@@ -68,7 +68,6 @@
             animation: fadeInUp 0.5s ease-out forwards;
         }
         
-        /* Gaya tambahan untuk Modal */
         .modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
@@ -79,13 +78,10 @@
 </head>
 <body class="text-gray-800 flex items-center justify-center min-h-screen p-4">
     
-    <!-- Latar Belakang Partikel -->
     <div id="particles-js"></div>
 
-    <!-- Kontainer Konten Utama -->
     <div class="content-container w-full max-w-md mx-auto text-center">
         
-        <!-- Bagian Header Profil -->
         <header class="mb-8 animate-fade-in-up">
             <img 
                 src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqgdp1VvQufrS58DFOHVfT9fIVU58Z9D9jU39zwkQl7ZkxB_LnfPC0qJWfJ73RZyb2Vkwb7TttCf9wSh2BU53eUtkT5LZRtEdKgUESzuCCAY4XAg4UGVP8JHbXNKEly2m8QRAyCoxp5oUZMhdcKkCr3BWNf1Jzza3Z3MbVCCHHEZEchLRwLhDYOw/s320/Logo%20Kementerian%20Perhubungan%20Indonesia%20(Kemenhub)%20%20(PNG-480p)%20-%20koleksilogo.png" 
@@ -96,34 +92,33 @@
             <p class="text-md text-gray-600 mt-2 px-4">Selamat datang di Siaga Layanan Dishub Prov. Sulteng</p>
         </header>
 
-        <!-- Bagian Daftar Tautan -->
         <main id="links-container" class="space-y-5">
-            
-            <!-- Tombol untuk membuka Modal Profil Instansi -->
-            <button id="open-profil-modal-btn" class="link-item flex items-center justify-center w-full bg-white/70 backdrop-blur-sm text-blue-600 font-semibold py-4 px-5 rounded-xl shadow-lg border border-white/50 hover:shadow-blue-200 hover:border-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-                <i data-lucide="book-open" class="mr-3 h-5 w-5"></i>
-                Profil Instansi
+
+            <!-- Tombol Video Profil Instansi -->
+            <button id="open-video-modal-btn" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-red-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <i data-lucide="video" class="mr-3 h-5 w-5"></i>
+                Video Profil Instansi
             </button>
 
-            <!-- Tautan 2: Layanan Pengaduan -->
+            <!-- Tautan Layanan Pengaduan -->
             <a href="https://wa.me/6281356686633?text=Halo,%20Saya%20ingin%20saya%20ingin%20melapor." target="_blank" class="link-item flex items-center justify-center w-full bg-green-500/80 backdrop-blur-sm text-white font-semibold py-4 px-5 rounded-xl shadow-lg border border-green-500/50 hover:shadow-green-200 hover:border-green-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="message-square" class="mr-3 h-5 w-5"></i>
                 Layanan Pengaduan via WhatsApp
             </a>
 
-            <!-- Tautan 3: Pendaftaran Izin -->
+            <!-- Tautan Pendaftaran Izin -->
             <a href="https://ui-login.oss.go.id/" target="_blank" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="file-check-2" class="mr-3 h-5 w-5"></i>
                 Pendaftaran Izin Online OSS RBA
             </a>
             
-            <!-- Tombol untuk membuka Modal Alur Darat -->
+            <!-- Tombol Alur Darat -->
             <button id="open-darat-modal-btn" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="truck" class="mr-3 h-5 w-5"></i>
                 Alur Perizinan Sektor Darat
             </button>
 
-            <!-- Tombol untuk membuka Modal Alur Laut -->
+            <!-- Tombol Alur Laut -->
             <button id="open-laut-modal-btn" class="link-item flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-5 rounded-xl shadow-lg hover:shadow-blue-300 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                 <i data-lucide="ship" class="mr-3 h-5 w-5"></i>
                 Alur Perizinan Sektor Laut
@@ -131,7 +126,6 @@
             
         </main>
 
-        <!-- Bagian Alamat Kantor -->
         <section class="mt-8 animate-fade-in-up" style="animation-delay: 0.8s;">
             <div class="bg-white/70 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-white/50 text-left">
                 <h3 class="text-lg font-semibold text-blue-600 flex items-center mb-3">
@@ -154,7 +148,6 @@
             </div>
         </section>
 
-        <!-- Bagian Footer -->
         <footer class="mt-12 animate-fade-in-up" style="animation-delay: 0.9s;">
             <div class="flex justify-center space-x-6 mb-4">
                 <a href="https://www.tiktok.com/@dishubsultengprov?is_from_webapp=1&sender_device=pc" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="music-2" class="h-6 w-6"></i></a>
@@ -162,33 +155,32 @@
                 <a href="https://www.instagram.com/dishubsultengprov?igsh=OHBzM2p4c2h5dmlh" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="instagram" class="h-6 w-6"></i></a>
                 <a href="https://youtube.com/@dishubsultengprov?si=AqSvZKs314gxwTMq" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="youtube" class="h-6 w-6"></i></a>
             </div>
-            <p class="text-sm text-gray-500">&copy; 2025 SILADIS. All rights reserved.</p>
+            <p class="text-sm text-gray-500">© 2025 SILADIS. All rights reserved.</p>
         </footer>
     </div>
     
-    <!-- === BAGIAN MODAL PDF === -->
-    <div id="pdf-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm invisible opacity-0">
+    <!-- Modal untuk Konten (PDF & Video) -->
+    <div id="content-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm invisible opacity-0">
         <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-[90vh] flex flex-col p-4 md:p-6 transform scale-95">
-            <!-- Header Modal -->
             <div class="flex items-center justify-between pb-3 border-b border-gray-200">
                 <h3 id="modal-title" class="text-xl font-semibold text-gray-800"></h3>
                 <button id="close-modal-btn" class="text-gray-500 hover:text-red-600 transition-colors rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-red-400">
                     <i data-lucide="x" class="h-7 w-7"></i>
                 </button>
             </div>
-            <!-- Konten iFrame PDF -->
             <div class="flex-grow mt-4">
                 <iframe 
-                    id="pdf-iframe"
+                    id="content-iframe"
                     class="w-full h-full border-0 rounded-lg"
                     src="" 
                     title="Dokumen SILADIS"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
                 ></iframe>
             </div>
         </div>
     </div>
     
-    <!-- Memuat Script particles.js dan konfigurasinya -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Inisialisasi Lucide Icons
@@ -202,39 +194,48 @@
             });
         });
 
-        // === LOGIKA BARU UNTUK MODAL PDF ===
-        const modal = document.getElementById('pdf-modal');
+        // === LOGIKA MODAL (PDF & VIDEO) ===
+        const modal = document.getElementById('content-modal');
         const closeBtn = document.getElementById('close-modal-btn');
-        const pdfIframe = document.getElementById('pdf-iframe');
+        const contentIframe = document.getElementById('content-iframe');
         const modalTitle = document.getElementById('modal-title');
 
-        const openProfilBtn = document.getElementById('open-profil-modal-btn');
+        // Mengambil semua tombol yang akan membuka modal
         const openDaratBtn = document.getElementById('open-darat-modal-btn');
         const openLautBtn = document.getElementById('open-laut-modal-btn');
+        const openVideoBtn = document.getElementById('open-video-modal-btn');
         
-        const pdfUrls = {
-            profil: "https://drive.google.com/file/d/1RUAwz3yPFT2O5a1F6fvGr6Lvl4P9sW37/preview",
+        // Objek untuk menyimpan semua URL
+        const contentUrls = {
             darat: "https://drive.google.com/file/d/1b_uZwJ5dBgSzc90PHZFeS3CNtsaA2UgT/preview",
-            laut: "https://drive.google.com/file/d/16b_9pTHBwiF8wksj7bAp-mQMTChvC1zs/preview"
+            laut: "https://drive.google.com/file/d/16b_9pTHBwiF8wksj7bAp-mQMTChvC1zs/preview",
+            video: "https://drive.google.com/file/d/11cs7QJpkF5wofMTWPLCsXmBKnvrE66jw/preview"
         };
 
+        // Fungsi untuk membuka modal
         const openModal = (title, url) => {
             modalTitle.textContent = title;
-            pdfIframe.src = url;
+            contentIframe.src = url;
             modal.classList.remove('invisible', 'opacity-0');
             modal.querySelector('.modal-content').classList.remove('scale-95');
         };
         
-        openProfilBtn.addEventListener('click', () => openModal('Profil Instansi', pdfUrls.profil));
-        openDaratBtn.addEventListener('click', () => openModal('Alur Perizinan Sektor Darat', pdfUrls.darat));
-        openLautBtn.addEventListener('click', () => openModal('Alur Perizinan Sektor Laut', pdfUrls.laut));
+        // Menambahkan event listener ke setiap tombol
+        openDaratBtn.addEventListener('click', () => openModal('Alur Perizinan Sektor Darat', contentUrls.darat));
+        openLautBtn.addEventListener('click', () => openModal('Alur Perizinan Sektor Laut', contentUrls.laut));
+        openVideoBtn.addEventListener('click', () => openModal('Video Profil Instansi', contentUrls.video));
 
+        // Fungsi untuk menutup modal
         const closeModal = () => {
             modal.classList.add('invisible', 'opacity-0');
             modal.querySelector('.modal-content').classList.add('scale-95');
-            pdfIframe.src = ""; // Kosongkan src untuk menghentikan pemuatan PDF
+            // Menghentikan video/dokumen saat modal ditutup
+            const iframeSrc = contentIframe.src;
+            contentIframe.src = iframeSrc;
+            contentIframe.src = ""; 
         };
 
+        // Event listener untuk tombol tutup dan klik di luar modal
         closeBtn.addEventListener('click', closeModal);
         modal.addEventListener('click', (event) => {
             if (event.target === modal) {
@@ -242,7 +243,7 @@
             }
         });
         
-        // Script untuk mencegah copy-paste, inspect element, dll.
+        // Script keamanan
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('keydown', event => {
             if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'i') || (event.ctrlKey && event.key.toLowerCase() === 'u') || (event.ctrlKey && ['c', 'v', 'x', 'a'].includes(event.key.toLowerCase()))) {
@@ -259,5 +260,3 @@
     </script>
 </body>
 </html>
-
-
